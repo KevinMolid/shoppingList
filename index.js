@@ -8,7 +8,6 @@ const appSettings = {
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
 const shoppingListInDB = ref(database, "shoppingList")
-const booksInDB = ref(database, "Books")
 
 const addBtn = document.getElementById("add-btn")
 const inputField = document.getElementById("input-field")
@@ -37,7 +36,9 @@ addBtn.addEventListener("click", function() {
   if (inputValue != "") {
     clearInputField()
 
-    push(shoppingListInDB, inputValue)
+    const newItem = {value: inputValue, category: 'none'}
+
+    push(shoppingListInDB, newItem)
   
     console.log(`${inputValue} added to database`)
   }
@@ -52,11 +53,15 @@ function clearShoppingList() {
 }
 
 function addToShoppingList(item) {
-  // shoppingList.innerHTML += `<li>${item}</li>`
   let itemID = item[0]
-  let itemValue = item[1]
+  let itemValue = item[1].value
+  let itemCategory = item[1].category
 
   let newEl = document.createElement("li")
+
+  newEl.addEventListener('click', function(){
+    newEl.classList.toggle('inactive')
+  })
 
   newEl.addEventListener("dblclick", function() {
     let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)

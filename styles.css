@@ -31,7 +31,6 @@ footer {
     left: 0;
     bottom: 0;
     padding: 0;
-    background: linear-gradient(180deg, #ecf1f3, #ecf1f3 50%, #333 50%, #333);
 }
 
 /* Images */
@@ -87,7 +86,7 @@ input {
 
 /* Buttons */
 
-button {
+.add-btn {
     display: inline-block;
     font-size: 28px;
     font-family: 'Roboto', sans-serif;
@@ -102,23 +101,30 @@ button {
     outline: none;
 }
 
-button:hover {
+.add-btn:hover {
     background-color: #555;
     cursor: pointer;
 }
 
-button:active {
+.add-btn:active {
     border: 2px solid #ecf1f3;
     padding: 8px 17px;
 }
 
-.favorites {
+.favorites-btn {
     font-size: 40px;
-    margin: 0;
+    margin-bottom: 5px;
     padding: 15px 16px;
-    color: #ffc400;
+    color: #333;
     background-color: #ffffff;
     border-radius: 50%;
+    border: none;
+}
+
+.favorites-btn:hover,
+.favorites-btn:focus {
+    color: #ffc400;
+    cursor: pointer;
 }
 
 /* Lists */
@@ -131,14 +137,14 @@ ul {
     display: flex;
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 8px;
 }
 
 ul li {
     color: #99734a;
     font-size: 20px;
     font-weight: 600;
-    padding: 10px;
+    padding: 12px;
     background-color: #ffeead;
     box-shadow: 2px 2px 0 rgba(155, 141, 141, 0.2);
     border-radius: 8px;
@@ -148,7 +154,7 @@ ul li {
 
 ul li:hover {
     border: 2px solid #333;
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
 }
 
@@ -161,4 +167,13 @@ a {
 a:visited {
     color: white;
     text-decoration: none;
+}
+
+/* Utility */
+
+.inactive {
+    padding: 10px;
+    color: #aaa;
+    background-color: #ecf1f3;
+    border: 2px solid #aaa;
 }
