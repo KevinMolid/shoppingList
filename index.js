@@ -41,6 +41,8 @@ addBtn.addEventListener("click", function() {
     push(shoppingListInDB, newItem)
   
     console.log(`${inputValue} added to database`)
+
+    inputField.focus()
   }
 })
 
